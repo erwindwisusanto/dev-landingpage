@@ -1,47 +1,41 @@
-# Use the official PHP 7.3.33 image
 FROM php:7.3.33-fpm
 
-# Set the working directory in the container
-WORKDIR /var/www/html
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    pkg-config
 
-# Install dependencies
-RUN apt-get update && \
-    apt-get install -y \
-        libzip-dev \
-        unzip \
-        libpng-dev \
-        libjpeg-dev \
-        libfreetype6-dev \
-        libpq-dev \
-        libonig-dev \
-        curl \
-        git \
-        supervisor \
-        nano \
-        && rm -rf /var/lib/apt/lists/* \
-        && docker-php-ext-install pdo pdo_mysql zip gd mbstring exif pcntl
+RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-# Enable Apache modules
-RUN a2enmod rewrite headers
+RUN docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/ \
+    && docker-php-ext-install gd
 
-# Copy existing application directory permissions
-RUN usermod -u 1000 www-data
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath
 
-# Install Composer globally
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy application files
+WORKDIR /var/www
+
 COPY . .
 
-# Install Laravel dependencies
-RUN composer install --no-interaction
+RUN composer install --no-dev --optimize-autoloader
 
-# Set permissions for Laravel
-RUN chown -R www-data:www-data \
-    /var/www/html/storage \
-    /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R 755 /var/www \
+    && chown -R www-data:www-data /var/www/storage \
+    && chmod -R 755 /var/www/storage \
+    && chown -R www-data:www-data /var/www/vendor \
+    && chmod -R 755 /var/www/vendor
 
-# Expose port 80 and start Apache
-EXPOSE 80
+RUN php artisan key:generate
 
-CMD ["apache2-foreground"]
+EXPOSE 8000
+
+CMD ["php-fpm"]
