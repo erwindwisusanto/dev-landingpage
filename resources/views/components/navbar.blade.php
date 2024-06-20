@@ -1,7 +1,7 @@
 <nav class="nav nav-top fixed-top">
     <div class="container">
         <div class="d-flex align-items-center">
-            <a href="{{ route("home") }}" class="nav-brand">
+            <a href="" class="nav-brand">
                 <img src="assets/img/logo.png" alt="">
             </a>
             <div class="btn-group ms-auto">
