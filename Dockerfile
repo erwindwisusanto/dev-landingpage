@@ -14,9 +14,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/ \
-    && docker-php-ext-install gd
-
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
