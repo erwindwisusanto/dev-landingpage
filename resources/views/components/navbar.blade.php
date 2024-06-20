@@ -10,8 +10,8 @@
                     <i class="mdi mdi-earth me-2"></i> EN
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="index.html" type="button">English</a></li>
-                    <li><a class="dropdown-item" href="index-indonesia.html" type="button">Indonesia</a></li>
+                    <li><a class="dropdown-item" href="?lang=en" type="button">English</a></li>
+                    <li><a class="dropdown-item" href="?lang=id" type="button">Indonesia</a></li>
                 </ul>
             </div>
         </div>
