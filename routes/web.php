@@ -1,20 +1,13 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::view('/', 'pages.home')->name('index');
 
-Route::view("/", "pages.index")->name("index");
-Route::view("/dengue", "pages.home")->name("dongue");
-// Route::view("/pharmacy-bali", "pages.pharmacy-bali")->name("pharmacy-bali");
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+})->name('change_locale');
 
 

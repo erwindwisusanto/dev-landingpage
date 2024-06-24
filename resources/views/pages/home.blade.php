@@ -1,19 +1,25 @@
+@php
+    $locale = session()->get('locale');
+@endphp
 <x-master-layout>
     <div class="content">
         <section class="banner-pages homepage">
             <div class="text">
                 <h3>
-                    Homecare <b> Dengue
-                        Fever </b> Treatment
+                    @if ($locale === 'en')
+                    {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}} </b> {{__('index.text_banner_3')}}
+                    @else
+                    {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}}
+                        di Rumah</b>
+                    @endif
                 </h3>
-                <a href="https://api.whatsapp.com/send/?phone=6285212500030" class="btn btn-whatsapp fs-14"><i class="mdi mdi-whatsapp fs-18 me-2"></i> Consult with
-                    Doctor </a>
+                <a href="https://api.whatsapp.com/send/?phone=6285212500030" class="btn btn-whatsapp fs-14"><i class="mdi mdi-whatsapp fs-18 me-2"></i> {{__('index.text_banner_button')}} </a>
             </div>
         </section>
 
         <section class="service">
             <div class="container">
-                <h3 class="title-section"> Dengue Fever Symptoms </h3>
+                <h3 class="title-section"> {{__('index.section_2.txt_header')}} </h3>
                 <div class="text-center">
                     <img src="assets/img/img-title-fever.png" class="img-title-fever" alt="">
                 </div>
@@ -21,37 +27,37 @@
                     <div class="col-6 col-md-4">
                         <div class="box-service">
                             <img src="assets/img/fever/img-fever01.svg" alt="">
-                            <span class="title-service"> High Fever </span>
+                            <span class="title-service"> {{__('index.section_2.txt_1')}} </span>
                         </div>
                     </div>
                     <div class="col-6 col-md-4">
                         <div class="box-service">
                             <img src="assets/img/fever/img-fever02.svg" alt="">
-                            <span class="title-service"> Pain in the Bones </span>
+                            <span class="title-service"> {{__('index.section_2.txt_2')}} </span>
                         </div>
                     </div>
                     <div class="col-6 col-md-4">
                         <div class="box-service">
                             <img src="assets/img/fever/img-fever03.svg" alt="">
-                            <span class="title-service"> Nausea </span>
+                            <span class="title-service"> {{__('index.section_2.txt_3')}} </span>
                         </div>
                     </div>
                     <div class="col-6 col-md-4">
                         <div class="box-service">
                             <img src="assets/img/fever/img-fever04.svg" alt="">
-                            <span class="title-service"> Rash </span>
+                            <span class="title-service"> {{__('index.section_2.txt_4')}} </span>
                         </div>
                     </div>
                     <div class="col-6 col-md-4">
                         <div class="box-service">
                             <img src="assets/img/fever/img-fever05.svg" alt="">
-                            <span class="title-service"> Abdominal Pain </span>
+                            <span class="title-service"> {{__('index.section_2.txt_5')}} </span>
                         </div>
                     </div>
                     <div class="col-6 col-md-4">
                         <div class="box-service">
                             <img src="assets/img/fever/img-fever06.svg" alt="">
-                            <span class="title-service"> Diarrhea </span>
+                            <span class="title-service"> {{__('index.section_2.txt_6')}} </span>
                         </div>
                     </div>
                 </div>
@@ -63,28 +69,30 @@
             <div class="top">
                 <div class="container">
                     <div class="title-section behind">
-                        <span>Special Price</span>
+                        <span> {{__('index.section_3.harga')}} </span>
                     </div>
                 </div>
             </div>
             <div class="bottom">
                 <div class="container">
                     <div class="text-center">
-                        <img src="assets/img/img-price.svg" class="img-price" alt="">
+                        @if ($locale === 'en')
+                            <img src="assets/img/img-price.svg" class="img-price" alt="">
+                        @else
+                            <img src="assets/img/img-price-indo.svg" class="img-price" alt="">
+                        @endif
                     </div>
                     <div class="text-center">
-                        <h3 class="intensive-title">Intensive Care for 7 days</h3>
+                        <h3 class="intensive-title">{{__('index.section_3.txt_1')}}</h3>
                     </div>
                     <div class="row g-3">
                         <div class="col-md-3">
                             <div class="items-intensive">
                                 <img src="assets/img/icon-intensive/img-iconintensive01.svg" class="icon" alt="">
                                 <div class="text">
-                                    <h6>3-4 daily IV infusions</h6>
+                                    <h6>{{__('index.section_3.part_1.text_1')}}</h6>
                                     <span>
-                                        IV infusions are adjusted to the patient's needs to maintain proper hydration
-                                        and
-                                        fluid balance.
+                                        {{__('index.section_3.part_1.text_2')}}
                                     </span>
                                 </div>
                             </div>
@@ -93,10 +101,9 @@
                             <div class="items-intensive">
                                 <img src="assets/img/icon-intensive/img-iconintensive02.svg" class="icon" alt="">
                                 <div class="text">
-                                    <h6>24/7 nursing care</h6>
+                                    <h6>{{__('index.section_3.part_2.text_1')}}</h6>
                                     <span>
-                                        Nurses are available at all times to offer care and support, ensuring continuous
-                                        peace of mind.
+                                        {{__('index.section_3.part_2.text_2')}}
                                     </span>
                                 </div>
                             </div>
@@ -105,10 +112,9 @@
                             <div class="items-intensive">
                                 <img src="assets/img/icon-intensive/img-iconintensive03.svg" class="icon" alt="">
                                 <div class="text">
-                                    <h6>Daily doctor visits</h6>
+                                    <h6>{{__('index.section_3.part_3.text_1')}}</h6>
                                     <span>
-                                        Doctor will assess, monitor progress, and administer necessary treatment every
-                                        day.
+                                        {{__('index.section_3.part_3.text_2')}}
                                     </span>
                                 </div>
                             </div>
@@ -117,34 +123,28 @@
                             <div class="items-intensive">
                                 <img src="assets/img/icon-intensive/img-iconintensive04.svg" class="icon" alt="">
                                 <div class="text">
-                                    <h6>Daily lab tests</h6>
+                                    <h6>{{__('index.section_3.part_4.text_1')}}</h6>
                                     <span>
-                                        Lab tests are conducted once a day to check platelet levels and other vital
-                                        parameters for optimal recovery.
+                                        {{__('index.section_3.part_4.text_2')}}
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-tc">
-                        <h5>Terms and Conditions</h5>
+                        <h5>{{__('index.section_3.tac.header')}}</h5>
                         <div class="row">
                             <div class="col-md-6">
                                 <ul>
                                     <li>
-                                        <b> Platelets under 40,000 </b> are advised hospital care: Ensuring patient
-                                        safety is our highest priority. If patient's
-                                        platelets count falls below 40,000, We will advise seeking additional treatment
-                                        at Hospital.
+                                        <b> {{__('index.section_3.tac.point_1_1')}} </b> {{__('index.section_3.tac.point_1_2')}}
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul>
                                     <li>
-                                        <b> Minimum treatment duration is 3 days: </b> To guarantee effective treatment,
-                                        the minimum duration is set at 3 days, However
-                                        this period may be extended based on the patient's needs.
+                                        <b> {{__('index.section_3.tac.point_2_1')}} </b> {{__('index.section_3.tac.point_2_2')}}
                                     </li>
                                 </ul>
                             </div>
@@ -157,11 +157,11 @@
 
         <section class="doctor">
             <div class="container">
-                <h3 class="title-section"> Our Doctors </h3>
+                <h3 class="title-section"> {{__('index.section_4.txt_header_1')}} </h3>
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-8">
                         <div class="row g-3 g-md-5 justify-content-center">
-                            <div class="col-6 col-md-4">
+                            {{-- <div class="col-6 col-md-4">
                                 <div class="items-doctor">
                                     <div class="img-doctor">
                                         <img src="assets/img/doctor/dr-dewi-f.png" alt="">
@@ -172,7 +172,7 @@
                                         <span>STR: 3121101422105406</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-6 col-md-4">
                                 <div class="items-doctor">
                                     <div class="img-doctor">
@@ -241,7 +241,7 @@
 
         <section class="doctor nurse">
             <div class="container">
-                <h3 class="title-section"> Our Nurses </h3>
+                <h3 class="title-section"> {{__('index.section_4.txt_header_2')}} </h3>
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-8">
                         <div class="row g-3 g-md-4 justify-content-center">
@@ -320,7 +320,7 @@
         <section class="partner">
             <div class="container">
                 <div class="title-section text-dark">
-                    Lab Partner
+                    {{__('index.section_5.header')}}
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -331,9 +331,9 @@
                             <div class="col-6 col-md-4">
                                 <img src="assets/img/partner/umedikal.png" class="w-100" alt="">
                             </div>
-                            <div class="col-6 col-md-4">
+                            {{-- <div class="col-6 col-md-4">
                                 <img src="assets/img/partner/prodia.png" class="w-100" alt="">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -343,20 +343,20 @@
         <section class="question">
             <div class="container">
                 <h4>
-                    Any Question?
+                    {{__('index.section_6.txt_header')}}
                 </h4>
                 <p>
-                    Our team is ready to help you directly
+                    {{__('index.section_6.text_1')}}
                 </p>
                 <a href="https://api.whatsapp.com/send/?phone=6285212500030" class="btn btn-whatsapp"><i class="mdi mdi-whatsapp fs-18 me-2"></i>
-                    Consult with Doctor</a>
+                    {{__('index.section_6.text_button')}}</a>
             </div>
         </section>
 
         <section class="testimonial">
             <div class="container">
                 <div class="title-section text-dark">
-                    Customer Testimonial
+                    {{__('index.section_7.text_header')}}
                 </div>
                 <div class="swiper swiper-article mt-5">
                     <div class="swiper-wrapper">
@@ -364,7 +364,7 @@
                             <div class="card-slide-testimoni">
                                 <div class="top">
                                     <p class="say">
-                                        "The pharmacists were very helpful in answering my questions. Highly recommend!"
+                                        "{{__('index.section_7.testi_1')}}"
                                     </p>
                                 </div>
                                 <div class="name">
@@ -384,9 +384,7 @@
                             <div class="card-slide-testimoni">
                                 <div class="top">
                                     <p class="say">
-                                        “Homecare Dengue Fever Treatment truly helped our family. The medical team was
-                                        friendly, responsive, and always helpful
-                                        whenever we had questions.”
+                                        "{{__('index.section_7.testi_2')}}"
                                     </p>
                                 </div>
                                 <div class="name">
@@ -406,7 +404,7 @@
                             <div class="card-slide-testimoni">
                                 <div class="top">
                                     <p class="say">
-                                        "Great selection of products and very user-friendly website."
+                                        "{{__('index.section_7.testi_3')}}"
                                     </p>
                                 </div>
                                 <div class="name">
