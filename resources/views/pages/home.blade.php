@@ -78,8 +78,11 @@
                     <div class="text-center">
                         @if ($locale === 'en')
                             <img src="assets/img/img-price.svg" class="img-price" alt="">
+                        @elseif ($locale === NULL)
+                            <img src="assets/img/img-price.svg" class="img-price" alt="">
                         @else
                             <img src="assets/img/img-price-indo.svg" class="img-price" alt="">
+
                         @endif
                     </div>
                     <div class="text-center">
