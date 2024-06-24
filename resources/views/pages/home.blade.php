@@ -10,7 +10,7 @@
                     {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}} </b> {{__('index.text_banner_3')}}
                     @else
                     {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}}
-                        di Rumah</b>
+                        </b>
                     @endif
                 </h3>
                 <a href="https://api.whatsapp.com/send/?phone=6285212500030" class="btn btn-whatsapp fs-14"><i class="mdi mdi-whatsapp fs-18 me-2"></i> {{__('index.text_banner_button')}} </a>
