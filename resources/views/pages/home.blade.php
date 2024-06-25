@@ -291,7 +291,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-4">
+                            {{-- <div class="col-6 col-md-4">
                                 <div class="items-doctor">
                                     <div class="img-doctor">
                                         <img src="assets/img/doctor/nurse-irfan.png" alt="">
@@ -301,7 +301,7 @@
                                         <span>STR: 1401511224517960</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-6 col-md-4">
                                 <div class="items-doctor">
                                     <div class="img-doctor">
