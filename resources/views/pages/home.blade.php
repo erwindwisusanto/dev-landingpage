@@ -1,6 +1,4 @@
-@php
-    $locale = session()->get('locale');
-@endphp
+@php $locale = session()->get('locale'); @endphp
 <x-master-layout>
     <div class="content">
         <section class="banner-pages homepage">
@@ -8,9 +6,11 @@
                 <h3>
                     @if ($locale === 'en')
                     {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}} </b> {{__('index.text_banner_3')}}
-                    @else
+                    @elseif($locale === 'id')
                     {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}}
                         </b> {{__('index.text_banner_3')}}
+                    @else
+                    {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}} </b> {{__('index.text_banner_3')}}
                     @endif
                 </h3>
                 <a href="https://api.whatsapp.com/send/?phone=6285212500030" class="btn btn-whatsapp fs-14"><i class="mdi mdi-whatsapp fs-18 me-2"></i> {{__('index.text_banner_button')}} </a>
@@ -82,7 +82,6 @@
                             <img src="assets/img/img-price.svg" class="img-price" alt="">
                         @else
                             <img src="assets/img/img-price-indo.svg" class="img-price" alt="">
-
                         @endif
                     </div>
                     <div class="text-center">
