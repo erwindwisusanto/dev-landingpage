@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dengue - Cepat Sehat</title>
 
     <!-- icons -->
@@ -16,40 +17,128 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset("assets/img/favicon.svg") }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.svg') }}">
 
     <!-- fontello -->
-    <link rel="stylesheet" href="{{ asset("assets/fontello/css/csehat.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/fontello/css/csehat.css') }}">
 
     <!-- swiper -->
-    <link rel="stylesheet" href="{{ asset("assets/css/swiper-bundle.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="{{ asset("assets/bootstrap/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
 
     <!-- custom -->
-    <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
 <body>
-    <x-navbar/>
+    <x-navbar />
 
     {{ $slot }}
 
-    <x-btn-float/>
-    <x-footer/>
+    <x-btn-float />
+    <x-footer />
 
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="{{ asset("assets/js/swiper-bundle.min.js") }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
 
     <script>
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(
             tooltipTriggerEl));
 
-        $(document).ready(function () {
+        const baseUrl = "{{ request()->root() }}";
+        const campaignName = "{{ request()->query('camp') }}";
+
+        const visitCounter = () => {
+            const storageKey = `page_view_${campaignName || 'root'}`;
+
+            var counterContainer = $(".website-counter");
+            var visitCount = localStorage.getItem(storageKey);
+
+            if (visitCount) {
+                visitCount = Number(visitCount) + 1;
+                localStorage.setItem(storageKey, visitCount);
+            } else {
+                visitCount = 1;
+                localStorage.setItem(storageKey, 1);
+            }
+            counterContainer.text(visitCount);
+
+            $.ajax({
+                url: '{{ route('visit-count') }}',
+                type: 'POST',
+                data: {
+                    count: visitCount,
+                    url: baseUrl,
+                    campaign: campaignName,
+                    source: "dengue",
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log('Visit count saved successfully');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error saving visit count:', error);
+                }
+            });
+        }
+
+
+        $('.whatsapp-link').on('click', function(e) {
+            e.preventDefault();
+            const url = $(this).attr('href');
+            const platform = "whatsapp";
+            updateCounter(campaignName, platform);
+            window.open(url, '_blank');
+        });
+
+        $('.telegram-link').on('click', function(e) {
+            e.preventDefault();
+            const url = $(this).attr('href');
+            const platform = "telegram";
+            updateCounter(campaignName, platform);
+            window.open(url, '_blank');
+        });
+
+        const updateCounter = (campaign, platform) => {
+            campaignValid = campaign === "" ? "root": campaign;
+            const storageKey = `click_counter_${campaignValid}_${platform}`;
+
+            let clickCount = localStorage.getItem(storageKey);
+
+            clickCount = clickCount ? Number(clickCount) + 1 : 1;
+
+            localStorage.setItem(storageKey, clickCount);
+
+            $.ajax({
+                url: '{{ route("click-count") }}',
+                type: 'POST',
+                data: {
+                    count: clickCount,
+                    campaign: campaign,
+                    platform: platform,
+                    source: "dengue"
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    console.log('Click count saved successfully');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error saving click count:', error);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            visitCounter();
             new Swiper('.swiper-article', {
                 loop: true,
                 slidesPerView: 3,
@@ -77,7 +166,7 @@
                 }
             });
 
-            $('.hero-banner').find('a').click(function () {
+            $('.hero-banner').find('a').click(function() {
                 var $href = $(this).attr('href');
                 var $anchor = $($href).offset();
                 var offsetValue = 100;
@@ -88,7 +177,7 @@
             });
         });
 
-        window.addEventListener('beforeunload', function (e) {
+        window.addEventListener('beforeunload', function(e) {
             navigator.sendBeacon('/destroy-session');
         });
     </script>
