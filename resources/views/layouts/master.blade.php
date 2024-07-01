@@ -54,7 +54,19 @@
         const campaignName = "{{ request()->query('camp') }}";
 
         const visitCounter = () => {
-            const storageKey = `page_view_${campaignName || 'root'}`;
+            const today = new Date().toISOString().split('T')[0];
+            const storageKey = `page_view_${campaignName || 'root'}_${today}`;
+
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            const lastVisitDate = yesterday.toISOString().split('T')[0];
+
+            const dateKey = `page_view_${campaignName || 'root'}_${lastVisitDate}`;
+            const LSYesterday = localStorage.getItem(dateKey);
+
+            if (LSYesterday) {
+                localStorage.removeItem(dateKey);
+            }
 
             var counterContainer = $(".website-counter");
             var visitCount = localStorage.getItem(storageKey);
