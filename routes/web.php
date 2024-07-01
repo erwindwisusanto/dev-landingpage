@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('index');
@@ -20,3 +21,12 @@ Route::post('/save-visit-count', [MainController::class, 'saveVisitCount'])->nam
 Route::post('/save-click-count', [MainController::class, 'saveClickCount'])->name('click-count');
 
 
+Route::get('/test-db', function () {
+    // dd(env('GOOGLE_API_TOKEN'));
+    try {
+        $result = DB::table('admin')->get();
+        return response()->json(['status' => 'success', 'result' => $result]);
+    } catch (\Exception $e) {
+        return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+    }
+});

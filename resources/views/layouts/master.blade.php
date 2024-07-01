@@ -84,6 +84,7 @@
                 url: '{{ route('visit-count') }}',
                 type: 'POST',
                 data: {
+                    _token: '{{ csrf_token() }}',
                     count: visitCount,
                     url: baseUrl,
                     campaign: campaignName,
@@ -132,6 +133,7 @@
                 url: '{{ route("click-count") }}',
                 type: 'POST',
                 data: {
+                    _token: '{{ csrf_token() }}',
                     count: clickCount,
                     campaign: campaign,
                     platform: platform,
