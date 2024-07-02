@@ -54,38 +54,37 @@
         const campaignName = "{{ request()->query('camp') }}";
 
         const visitCounter = () => {
-            const today = new Date().toISOString().split('T')[0];
-            const storageKey = `page_view_${campaignName || 'root'}_${today}`;
+            // const today = new Date().toISOString().split('T')[0];
+            // const storageKey = `page_view_${campaignName || 'root'}_${today}`;
 
-            const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            const lastVisitDate = yesterday.toISOString().split('T')[0];
+            // const yesterday = new Date();
+            // yesterday.setDate(yesterday.getDate() - 1);
+            // const lastVisitDate = yesterday.toISOString().split('T')[0];
 
-            const dateKey = `page_view_${campaignName || 'root'}_${lastVisitDate}`;
-            const LSYesterday = localStorage.getItem(dateKey);
+            // const dateKey = `page_view_${campaignName || 'root'}_${lastVisitDate}`;
+            // const LSYesterday = localStorage.getItem(dateKey);
 
-            if (LSYesterday) {
-                localStorage.removeItem(dateKey);
-            }
+            // if (LSYesterday) {
+            //     localStorage.removeItem(dateKey);
+            // }
 
-            var counterContainer = $(".website-counter");
-            var visitCount = localStorage.getItem(storageKey);
+            // var counterContainer = $(".website-counter");
+            // var visitCount = localStorage.getItem(storageKey);
 
-            if (visitCount) {
-                visitCount = Number(visitCount) + 1;
-                localStorage.setItem(storageKey, visitCount);
-            } else {
-                visitCount = 1;
-                localStorage.setItem(storageKey, 1);
-            }
-            counterContainer.text(visitCount);
+            // if (visitCount) {
+            //     visitCount = Number(visitCount) + 1;
+            //     localStorage.setItem(storageKey, visitCount);
+            // } else {
+            //     visitCount = 1;
+            //     localStorage.setItem(storageKey, 1);
+            // }
+            // counterContainer.text(visitCount);
 
             $.ajax({
                 url: '{{ route('visit-count') }}',
                 type: 'POST',
                 data: {
                     _token: '{{ csrf_token() }}',
-                    count: visitCount,
                     url: baseUrl,
                     campaign: campaignName,
                     source: "dengue",
