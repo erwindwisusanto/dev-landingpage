@@ -53,7 +53,7 @@
         const baseUrl = "{{ request()->root() }}";
         const campaignName = "{{ request()->query('camp') }}";
 
-        const visitCounter = () => {
+        const visitCounter = async () => {
             const today = new Date().toISOString().split('T')[0];
             const storageKey = `page_view_${campaignName || 'root'}_${today}`;
 
@@ -80,7 +80,7 @@
             }
             counterContainer.text(visitCount);
 
-            $.ajax({
+            const response = await $.ajax({
                 url: '{{ route('visit-count') }}',
                 type: 'POST',
                 data: {
@@ -119,36 +119,36 @@
             window.open(url, '_blank');
         });
 
-        const updateCounter = (campaign, platform) => {
-            campaignValid = campaign === "" ? "root": campaign;
-            const storageKey = `click_counter_${campaignValid}_${platform}`;
+        const updateCounter = async (campaign, platform) => {
+            try {
+                campaignValid = campaign === "" ? "root": campaign;
+                const storageKey = `click_counter_${campaignValid}_${platform}`;
 
-            let clickCount = localStorage.getItem(storageKey);
+                let clickCount = localStorage.getItem(storageKey);
 
-            clickCount = clickCount ? Number(clickCount) + 1 : 1;
+                clickCount = clickCount ? Number(clickCount) + 1 : 1;
 
-            localStorage.setItem(storageKey, clickCount);
+                localStorage.setItem(storageKey, clickCount);
 
-            $.ajax({
-                url: '{{ route("click-count") }}',
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    count: clickCount,
-                    campaign: campaign,
-                    platform: platform,
-                    source: "dengue"
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    console.log('Click count saved successfully');
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error saving click count:', error);
-                }
-            });
+                const response =  await $.ajax({
+                    url: '{{ route("click-count") }}',
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        count: clickCount,
+                        campaign: campaign,
+                        platform: platform,
+                        source: "dengue"
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                console.log('Click count saved successfully');
+            } catch (error) {
+                console.error('Error saving click count:', error);
+                throw error;
+            }
         }
 
         $(document).ready(function() {
