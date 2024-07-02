@@ -72,4 +72,16 @@ class MainController extends Controller
             }
         }
     }
+
+    public function getWaWording(Request $request) {
+        $source = $request->input("source");
+        $campaign = $request->input("campaign");
+        $camp = Campaign::where('name', $campaign)->where('source', $source)->select('whatsapp_wording')->first();
+
+        if ($camp || $camp === "") {
+            return response()->json(['data' => $camp], 200);
+        }
+
+        return response()->json(['data' => null], 200);
+    }
 }

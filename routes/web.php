@@ -19,6 +19,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Route::post('/save-visit-count', [MainController::class, 'saveVisitCount'])->name('visit-count');
 Route::post('/save-click-count', [MainController::class, 'saveClickCount'])->name('click-count');
+Route::get('/wa-wording', [MainController::class, 'getWaWording'])->name('get-wa-wording');
 
 
 Route::get('/test-db', function () {

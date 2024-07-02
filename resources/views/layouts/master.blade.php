@@ -151,6 +151,52 @@
             }
         }
 
+        let waword = '';
+        const getWaWording = async () => {
+            try {
+                const response = await $.ajax({
+                    url: '{{ route("get-wa-wording") }}',
+                    type: 'GET',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        campaign: campaignName,
+                        source: "dengue"
+                    },
+                    success: function(resp) {
+                        waword = resp.data.whatsapp_wording; // Assign the WhatsApp wording to waword
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                console.log('Success: get wa wording');
+            } catch (error) {
+                console.error('Error: get wa wording', error);
+                throw error;
+            }
+        };
+
+        getWaWording().then(() => {
+            console.log('getWaWording completed, waword:', waword);
+        }).catch((error) => {
+            console.error('Error in getWaWording:', error);
+        });
+
+        const directurl = (platform) => {
+            const numberphone = "6285212500030";
+            switch (platform) {
+                case "wa":
+                    window.open(`https://web.WhatsApp.com/send?phone=${encodeURIComponent(numberphone)}&text=${encodeURIComponent(waword)}`, '_blank');
+                    break;
+                case "tele":
+                    const telegramUsername = 'cepat_sehat';
+                    window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(waword)}`, '_blank');
+                    break;
+                default:
+                    break;
+            }
+        }
+
         $(document).ready(function() {
             visitCounter();
             new Swiper('.swiper-article', {
