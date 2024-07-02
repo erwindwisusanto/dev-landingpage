@@ -18,7 +18,7 @@ class MainController extends Controller
 
     public function saveVisitCount(Request $request)
     {
-        $count      = $request->input('count');
+        $count      = 1;
         $url        = $request->input('url');
         $source     = $request->input('source');
         $campaign   = ($request->input('campaign') === null) ? "" : $request->input('campaign');
@@ -33,7 +33,7 @@ class MainController extends Controller
                 $visit->campaign_name = $campaign;
                 $visit->source_url = $url;
                 $visit->source = $source;
-                $visit->visit_landingpage = $visit->count + $count;
+                $visit->visit_landingpage = $visit->visit_landingpage + $count;
                 $visit->save();
             } else {
                 $visit = new Visit();
@@ -51,8 +51,7 @@ class MainController extends Controller
     }
 
     public function saveClickCount(Request $request) {
-
-        $count      = $request->input('count');
+        $count      = 1;
         $source     = $request->input('source');
         $platform   = $request->input('platform');
         $campaign   = ($request->input('campaign') === null) ? "" : $request->input('campaign');
@@ -65,9 +64,9 @@ class MainController extends Controller
 
             if ($camplog) {
                 if ($platform === "whatsapp") {
-                    $camplog->whatsapp_hit = $camplog->count + $count;
+                    $camplog->whatsapp_hit = $camplog->whatsapp_hit + $count;
                 } else {
-                    $camplog->telegram_hit = $camplog->count + $count;
+                    $camplog->telegram_hit = $camplog->telegram_hit + $count;
                 }
                 $camplog->save();
             }
