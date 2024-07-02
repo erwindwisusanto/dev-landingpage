@@ -53,7 +53,7 @@
         const baseUrl = "{{ request()->root() }}";
         const campaignName = "{{ request()->query('camp') }}";
 
-        const visitCounter = async () => {
+        const visitCounter = () => {
             const today = new Date().toISOString().split('T')[0];
             const storageKey = `page_view_${campaignName || 'root'}_${today}`;
 
@@ -80,7 +80,7 @@
             }
             counterContainer.text(visitCount);
 
-            const response = await $.ajax({
+            $.ajax({
                 url: '{{ route('visit-count') }}',
                 type: 'POST',
                 data: {
@@ -163,7 +163,7 @@
                         source: "dengue"
                     },
                     success: function(resp) {
-                        waword = resp.data.whatsapp_wording; // Assign the WhatsApp wording to waword
+                        waword = resp.data?.whatsapp_wording || ''; // Assign the WhatsApp wording to waword
                     },
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
