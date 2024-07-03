@@ -52,34 +52,13 @@
 
         const baseUrl = "{{ request()->root() }}";
         const campaignName = "{{ request()->query('camp') }}";
+        const numberphone = "6285212500030";
+        const _WHATSAPP = "whatsapp";
+        const _TELEGRAM = "telegram";
+        const _SOURCE = "dengue";
+        const telegramUsername = 'cepat_sehat';
 
         const visitCounter = () => {
-            // const today = new Date().toISOString().split('T')[0];
-            // const storageKey = `page_view_${campaignName || 'root'}_${today}`;
-
-            // const yesterday = new Date();
-            // yesterday.setDate(yesterday.getDate() - 1);
-            // const lastVisitDate = yesterday.toISOString().split('T')[0];
-
-            // const dateKey = `page_view_${campaignName || 'root'}_${lastVisitDate}`;
-            // const LSYesterday = localStorage.getItem(dateKey);
-
-            // if (LSYesterday) {
-            //     localStorage.removeItem(dateKey);
-            // }
-
-            // var counterContainer = $(".website-counter");
-            // var visitCount = localStorage.getItem(storageKey);
-
-            // if (visitCount) {
-            //     visitCount = Number(visitCount) + 1;
-            //     localStorage.setItem(storageKey, visitCount);
-            // } else {
-            //     visitCount = 1;
-            //     localStorage.setItem(storageKey, 1);
-            // }
-            // counterContainer.text(visitCount);
-
             $.ajax({
                 url: '{{ route('visit-count') }}',
                 type: 'POST',
@@ -87,7 +66,7 @@
                     _token: '{{ csrf_token() }}',
                     url: baseUrl,
                     campaign: campaignName,
-                    source: "dengue",
+                    source: _SOURCE,
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -101,43 +80,16 @@
             });
         }
 
-
-        $('.whatsapp-link').on('click', function(e) {
-            e.preventDefault();
-            const url = $(this).attr('href');
-            const platform = "whatsapp";
-            updateCounter(campaignName, platform);
-            window.open(url, '_blank');
-        });
-
-        $('.telegram-link').on('click', function(e) {
-            e.preventDefault();
-            const url = $(this).attr('href');
-            const platform = "telegram";
-            updateCounter(campaignName, platform);
-            window.open(url, '_blank');
-        });
-
-        const updateCounter = async (campaign, platform) => {
+        const updateCounter = async (platform) => {
             try {
-                campaignValid = campaign === "" ? "root": campaign;
-                const storageKey = `click_counter_${campaignValid}_${platform}`;
-
-                let clickCount = localStorage.getItem(storageKey);
-
-                clickCount = clickCount ? Number(clickCount) + 1 : 1;
-
-                localStorage.setItem(storageKey, clickCount);
-
-                const response =  await $.ajax({
-                    url: '{{ route("click-count") }}',
+                const response = await $.ajax({
+                    url: '{{ route('click-count') }}',
                     type: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',
-                        count: clickCount,
-                        campaign: campaign,
+                        campaign: campaignName,
                         platform: platform,
-                        source: "dengue"
+                        source: _SOURCE
                     },
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -154,15 +106,15 @@
         const getWaWording = async () => {
             try {
                 const response = await $.ajax({
-                    url: '{{ route("get-wa-wording") }}',
+                    url: '{{ route('get-wa-wording') }}',
                     type: 'GET',
                     data: {
                         _token: '{{ csrf_token() }}',
                         campaign: campaignName,
-                        source: "dengue"
+                        source: _SOURCE
                     },
                     success: function(resp) {
-                        waword = resp.data?.whatsapp_wording || ''; // Assign the WhatsApp wording to waword
+                        waword = resp.data?.whatsapp_wording || '';
                     },
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -176,19 +128,20 @@
         };
 
         getWaWording().then(() => {
-            console.log('getWaWording completed, waword:', waword);
+            console.log('whatsapp wording:', waword);
         }).catch((error) => {
             console.error('Error in getWaWording:', error);
         });
 
         const directurl = (platform) => {
-            const numberphone = "6285212500030";
             switch (platform) {
-                case "wa":
-                    window.open(`https://web.WhatsApp.com/send?phone=${encodeURIComponent(numberphone)}&text=${encodeURIComponent(waword)}`, '_blank');
+                case _WHATSAPP:
+                    updateCounter(_WHATSAPP);
+                    window.open(
+                        `https://web.WhatsApp.com/send?phone=${encodeURIComponent(numberphone)}&text=${encodeURIComponent(waword)}`, '_blank');
                     break;
-                case "tele":
-                    const telegramUsername = 'cepat_sehat';
+                case _TELEGRAM:
+                    updateCounter(_TELEGRAM);
                     window.open(`https://t.me/${telegramUsername}?text=${encodeURIComponent(waword)}`, '_blank');
                     break;
                 default:

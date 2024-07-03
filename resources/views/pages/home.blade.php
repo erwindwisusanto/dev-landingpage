@@ -13,7 +13,7 @@
                     {{__('index.text_banner_1')}} <b> {{__('index.text_banner_2')}} </b> {{__('index.text_banner_3')}}
                     @endif
                 </h3>
-                <a onclick="directurl('wa')" class="btn btn-whatsapp fs-14 whatsapp-link"><i class="mdi mdi-whatsapp fs-18 me-2"></i> {{__('index.text_banner_button')}} </a>
+                <a onclick="directurl('whatsapp')" class="btn btn-whatsapp fs-14"><i class="mdi mdi-whatsapp fs-18 me-2"></i> {{__('index.text_banner_button')}} </a>
             </div>
         </section>
 
@@ -350,7 +350,7 @@
                 <p>
                     {{__('index.section_6.text_1')}}
                 </p>
-                <a onclick="directurl('wa')" class="btn btn-whatsapp whatsapp-link"><i class="mdi mdi-whatsapp fs-18 me-2"></i>
+                <a onclick="directurl('whatsapp')" class="btn btn-whatsapp"><i class="mdi mdi-whatsapp fs-18 me-2"></i>
                     {{__('index.section_6.text_button')}}</a>
             </div>
         </section>

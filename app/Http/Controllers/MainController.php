@@ -50,7 +50,8 @@ class MainController extends Controller
         }
     }
 
-    public function saveClickCount(Request $request) {
+    public function saveClickCount(Request $request)
+    {
         $count      = 1;
         $source     = $request->input('source');
         $platform   = $request->input('platform');
@@ -73,7 +74,8 @@ class MainController extends Controller
         }
     }
 
-    public function getWaWording(Request $request) {
+    public function getWaWording(Request $request)
+    {
         $source = $request->input("source");
         $campaign = $request->input("campaign");
         $camp = Campaign::where('name', $campaign)->where('source', $source)->select('whatsapp_wording')->first();
