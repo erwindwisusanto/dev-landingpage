@@ -18,19 +18,19 @@ return [
         "harga" => "Special Price",
         "txt_1" => "Our home care 24/7 clinic dengue services include:",
         "part_1" => [
-            "text_1" => "3-4 daily IV infusions",
+            "text_1" => "3-4 Daily IV Infusions",
             "text_2" => "Our mobile IV infusions are tailored to the patient's needs to maintain proper hydration and fluid balance, all in the comfort of your home.",
         ],
         "part_2" => [
-            "text_1" => "24/7 nursing care",
+            "text_1" => "24/7 Nursing Care",
             "text_2" => "Our dedicated nurses are available around the clock to provide care and support at home, ensuring you have continuous peace of mind. We can provide up to 24-hour care with the presence of a nurse if necessary.",
         ],
         "part_3" => [
-            "text_1" => "Daily doctor visits",
+            "text_1" => "Daily Doctor Visits",
             "text_2" => "Our doctors will visit your home daily to assess, monitor progress, and administer the necessary treatment, offering hospital-quality care right where you live.",
         ],
         "part_4" => [
-            "text_1" => "Daily lab tests",
+            "text_1" => "Daily Lab Tests",
             "text_2" => "We conduct daily lab tests at your home to check platelet levels and other vital parameters, ensuring optimal recovery and convenience.",
         ],
         "part_5" => [
