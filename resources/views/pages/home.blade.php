@@ -88,7 +88,7 @@
                         <h3 class="intensive-title">{{__('index.section_3.txt_1')}}</h3>
                     </div>
                     <div class="row g-3">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="items-intensive">
                                 <img src="assets/img/icon-intensive/img-iconintensive01.svg" class="icon" alt="">
                                 <div class="text">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="items-intensive">
                                 <img src="assets/img/icon-intensive/img-iconintensive02.svg" class="icon" alt="">
                                 <div class="text">
@@ -131,6 +131,27 @@
                                     </span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="items-intensive">
+                                <img src="assets/img/icon-intensive/img-iconintensive02.svg" class="icon" alt="">
+                                <div class="text">
+                                    <h6>{{__('index.section_3.part_5.text_1')}}</h6>
+                                    <span>
+                                        {{__('index.section_3.part_5.text_2')}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center pt-3">
+                        <h3 class="intensive-title">{{__('index.section_3.part_6.text_1')}}</h3>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-10 offset-md-1">
+                            <span style="color: #fff; font-size: 16px;">
+                                {{__('index.section_3.part_6.text_2')}}
+                            </span>
                         </div>
                     </div>
                     <div class="card-tc">

@@ -16,22 +16,30 @@ return [
     ],
     "section_3" => [
         "harga" => "Harga Spesial",
-        "txt_1" => "Perawatan Intensif Selama 7 Hari",
+        "txt_1" => "Layanan klinik 24/7 perawatan demam berdarah di rumah mencakup:",
         "part_1" => [
-            "text_1" => "3x-4x Infus Harian",
-            "text_2" => "infus disesuaikan dengan kebutuhan pasien, untuk menjaga hidrasi dan keseimbangan cairan tubuh.",
+            "text_1" => "Infus 3-4 Kali Sehari",
+            "text_2" => "Infus disesuaikan dengan kebutuhan pasien untuk menjaga hidrasi dan keseimbangan cairan yang tepat, semuanya dalam kenyamanan rumah Anda.",
         ],
         "part_2" => [
-            "text_1" => "Tenaga Perawat 24/7",
-            "text_2" => "Perawat siap memberikan perawatan dan bantuan kapan saja, memberikan Anda ketenangan pikiran sepanjang waktu.",
+            "text_1" => "Perawat 24/7",
+            "text_2" => "Perawat kami tersedia sepanjang waktu untuk memberikan perawatan khusus di rumah, memastikan Anda mendapatkan perawatan yang berkelanjutan. Kami dapat menyediakan perawatan hingga 24 jam dengan kehadiran perawat jika diperlukan.",
         ],
         "part_3" => [
-            "text_1" => "Kunjungan Dokter 1x Sehari",
-            "text_2" => "Dokter akan mengevaluasi, memantau perkembangan, dan memberikan perawatan yang diperlukan setiap hari.",
+            "text_1" => "Kunjungan Dokter Harian",
+            "text_2" => "Dokter kami akan mengunjungi rumah Anda setiap hari untuk menilai, memantau kondisi, dan memberikan perawatan yang diperlukan, menawarkan perawatan berkualitas rumah sakit langsung di tempat Anda.",
         ],
         "part_4" => [
-            "text_1" => "Pemeriksaan Laboratorium Harian",
-            "text_2" => "Cek lab 1x sehari untuk memantau tingkat trombosit dan parameter lainnya guna pemulihan optimal.",
+            "text_1" => "Tes Laboratorium Harian",
+            "text_2" => "Kami melakukan tes laboratorium harian di rumah Anda untuk memeriksa kadar trombosit dan parameter vital lainnya, memastikan pemulihan yang optimal dan kenyamanan.",
+        ],
+        "part_5" => [
+            "text_1" => "Dukungan Medis 24/7",
+            "text_2" => "Tim medis kami tersedia 24/7 melalui WhatsApp atau panggilan telepon, memastikan Anda memiliki akses ke petugas medis profesional dan bantuan kapan pun Anda membutuhkannya.",
+        ],
+        "part_6" => [
+            "text_1" => "Mengapa Memilih Kami?",
+            "text_2" => "Klinik Cepat Sehat memberikan perawatan berkualitas rumah sakit ke rumah Anda. Tim dokter dan perawat berpengalaman kami menggunakan peralatan canggih untuk menyediakan layanan medis yang komprehensif di rumah. Kami berkomitmen untuk memastikan keselamatan, kenyamanan, dan kesejahteraan Anda dengan perawatan pribadi yang disesuaikan untuk memenuhi kebutuhan spesifik Anda.",
         ],
         "tac" => [
             "header" => "Syarat dan Ketentuan",

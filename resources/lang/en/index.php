@@ -16,22 +16,30 @@ return [
     ],
     "section_3" => [
         "harga" => "Special Price",
-        "txt_1" => "Intensive Care for 7 days",
+        "txt_1" => "Our home care 24/7 clinic dengue services include:",
         "part_1" => [
             "text_1" => "3-4 daily IV infusions",
-            "text_2" => "V infusions are adjusted to the patient's needs to maintain proper hydration and fluid balance.",
+            "text_2" => "Our mobile IV infusions are tailored to the patient's needs to maintain proper hydration and fluid balance, all in the comfort of your home.",
         ],
         "part_2" => [
             "text_1" => "24/7 nursing care",
-            "text_2" => "Nurses are available at all times to offer care and support, ensuring continuous peace of mind.",
+            "text_2" => "Our dedicated nurses are available around the clock to provide care and support at home, ensuring you have continuous peace of mind. We can provide up to 24-hour care with the presence of a nurse if necessary.",
         ],
         "part_3" => [
             "text_1" => "Daily doctor visits",
-            "text_2" => "Doctor will assess, monitor progress, and administer necessary treatment every day.",
+            "text_2" => "Our doctors will visit your home daily to assess, monitor progress, and administer the necessary treatment, offering hospital-quality care right where you live.",
         ],
         "part_4" => [
             "text_1" => "Daily lab tests",
-            "text_2" => "Lab tests are conducted once a day to check platelet levels and other vital parameters for optimal recovery.",
+            "text_2" => "We conduct daily lab tests at your home to check platelet levels and other vital parameters, ensuring optimal recovery and convenience.",
+        ],
+        "part_5" => [
+            "text_1" => "24/7 Medical Support",
+            "text_2" => "Our medical team is available 24/7 for support via WhatsApp or phone calls, ensuring you have access to professional medical advice and assistance whenever you need it.",
+        ],
+        "part_6" => [
+            "text_1" => "Why Choose Us?",
+            "text_2" => "Clinic Cepat Sehat brings hospital-quality care to your doorstep. Our team of experienced doctors, nurses, and technicians use state-of-the-art equipment to provide comprehensive medical services at home. We are committed to ensuring your safety, comfort, and well-being with personalized care plans tailored to meet your specific needs.",
         ],
         "tac" => [
             "header" => "Terms and Conditions",
