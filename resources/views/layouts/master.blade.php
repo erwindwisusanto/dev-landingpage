@@ -52,7 +52,7 @@
 
         const baseUrl = "{{ request()->root() }}";
         const campaignName = "{{ request()->query('camp') }}";
-        const numberphone = "6285212500030";
+        const numberphone = "6282221122311";
         const _WHATSAPP = "whatsapp";
         const _TELEGRAM = "telegram";
         const _SOURCE = "dengue";
@@ -138,11 +138,11 @@
                 case _WHATSAPP:
                     if (campaignName) {
                         updateCounter(_WHATSAPP);
-                        window.open(`https://web.WhatsApp.com/send?phone=${encodeURIComponent(numberphone)}&text=${encodeURIComponent(waword)}`, '_blank');
+                        window.open(`https://api.whatsapp.com/send/?phone=${encodeURIComponent(numberphone)}&text=${encodeURIComponent(waword)}`, '_blank');
                         break;
                     } else {
                         updateCounter(_WHATSAPP);
-                        window.open(`https://api.whatsapp.com/send/?phone=6282221122311&text=Hello+denguehospital.com+by+Cepat+Sehat+Clinic%2C+I+want+a+consultation&type=phone_number&app_absent=0`, '_blank');
+                        window.open(`https://api.whatsapp.com/send/?phone=${encodeURIComponent(numberphone)}&text=Hello+denguehospital.com+by+Cepat+Sehat+Clinic%2C+I+want+a+consultation&type=phone_number&app_absent=0`, '_blank');
                         break;
                     }
                 case _TELEGRAM:
