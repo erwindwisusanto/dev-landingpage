@@ -68,21 +68,19 @@
         <section class="intensive">
             <div class="top">
                 <div class="container">
-                    <div class="title-section behind">
-                        <span> {{__('index.section_3.harga')}} </span>
+                    <div class="title-section">
+                        <span> {{__('index.section_3.harga')}}</span>
                     </div>
                 </div>
             </div>
             <div class="bottom">
                 <div class="container">
-                    <div class="text-center">
-                        @if ($locale === 'en')
-                            <img src="assets/img/img-price.svg" class="img-price" alt="">
-                        @elseif ($locale === NULL)
-                            <img src="assets/img/img-price.svg" class="img-price" alt="">
-                        @else
-                            <img src="assets/img/img-price-indo.svg" class="img-price" alt="">
-                        @endif
+                    <div class="col-10 offset-1 col-lg-6 offset-lg-3">
+                        <div class="text-center">
+                            <div class="img-price" style="border: 0px solid #fff; border-width: 0px 2px 2px 2px; border-radius: 0px 0px 10px 10px;">
+                              <h3 style="color: #FFCB8E; padding: 20px 0px 10px 0px; font-weight: 700;">{{__('index.section_3.text_2')}}</h3>
+                            </div>
+                        </div>
                     </div>
                     <div class="text-center">
                         <h3 class="intensive-title">{{__('index.section_3.txt_1')}}</h3>
@@ -376,7 +374,7 @@
             </div>
         </section>
 
-        <section class="testimonial">
+        {{-- <section class="testimonial">
             <div class="container">
                 <div class="title-section text-dark">
                     {{__('index.section_7.text_header')}}
@@ -446,7 +444,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
     </div>
 </x-master-layout>

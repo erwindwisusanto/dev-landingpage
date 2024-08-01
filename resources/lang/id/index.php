@@ -15,7 +15,8 @@ return [
         "txt_6" => "Diare",
     ],
     "section_3" => [
-        "harga" => "Harga Spesial",
+        "harga" => "Paket Perawatan DBD",
+        "text_2" => "Apa yang Anda Dapatkan?",
         "txt_1" => "Layanan klinik 24/7 perawatan demam berdarah di rumah mencakup:",
         "part_1" => [
             "text_1" => "Infus 3-4 Kali Sehari",

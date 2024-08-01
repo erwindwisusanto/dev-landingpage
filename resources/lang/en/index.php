@@ -15,7 +15,8 @@ return [
         "txt_6" => "Diarrhea",
     ],
     "section_3" => [
-        "harga" => "Special Price",
+        "harga" => "Dengue Treatment Package",
+        "text_2" => "What you'll get?",
         "txt_1" => "Our home care 24/7 clinic dengue services include:",
         "part_1" => [
             "text_1" => "3-4 Daily IV Infusions",
