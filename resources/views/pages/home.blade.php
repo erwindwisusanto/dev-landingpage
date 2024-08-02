@@ -68,8 +68,8 @@
         <section class="intensive">
             <div class="top">
                 <div class="container">
-                    <div class="title-section">
-                        <span> {{__('index.section_3.harga')}}</span>
+                    <div class="text-center">
+                        <h3 class="intensive-title" style="font-weight: 700; color: #fff;"> {{__('index.section_3.harga')}}</h3>
                     </div>
                 </div>
             </div>
@@ -78,12 +78,14 @@
                     <div class="col-10 offset-1 col-lg-6 offset-lg-3">
                         <div class="text-center">
                             <div class="img-price" style="border: 0px solid #fff; border-width: 0px 2px 2px 2px; border-radius: 0px 0px 10px 10px;">
-                              <h3 style="color: #FFCB8E; padding: 20px 0px 10px 0px; font-weight: 700;">{{__('index.section_3.text_2')}}</h3>
+                              <h3 class="intensive-title" style="color: #FFCB8E; padding: 20px 0px 0px 0px;">{{__('index.section_3.text_2')}}</h3>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center">
-                        <h3 class="intensive-title">{{__('index.section_3.txt_1')}}</h3>
+                    <div class="row mt-3">
+                        <div class="text-center mt-2">
+                            <h3 class="intensive-title">{{__('index.section_3.txt_1')}}</h3>
+                        </div>
                     </div>
                     <div class="row g-3">
                         <div class="col-md-2">
