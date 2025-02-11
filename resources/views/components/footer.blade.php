@@ -9,12 +9,30 @@
         </div>
         <div class="row mt-4">
             <div class="col-md-12 text-white">
-                <p class="fs-14">
+                {{-- <p class="fs-14">
                     <b> {{__('index.footer.text_row_1')}} </b> {{__('index.footer.text_row_1_2')}}
+                </p> --}}
+                <p class="fs-14">
+                    {{__('index.footer.row1')}}
+                </p>
+                <p class="fs-14">
+                    {{__('index.footer.row2')}}
+                </p>
+                <p class="fs-14">
+                    {{__('index.footer.row3')}}
+                </p>
+                <p class="fs-14">
+                    {{__('index.footer.row4')}}
+                </p>
+                <p class="fs-14">
+                    {{__('index.footer.row5')}}
+                </p>
+                <p class="fs-14">
+                    {{__('index.footer.row6')}}
                 </p>
                 <div class="location">
                     <p class="fs-14">
-                        {{__('index.footer.text_row_2')}}
+                        {{__('index.footer.row7')}}
                     </p>
                     <div class="row g-3">
                         <div class="col-md-3">

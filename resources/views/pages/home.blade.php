@@ -181,7 +181,7 @@
         <section class="doctor">
             <div class="container">
                 <h3 class="title-section"> {{__('index.section_4.txt_header_1')}} </h3>
-                <div class="row justify-content-center">
+                <div class="row g-3 g-md-5 justify-content-center d-flex align-items-stretch">
                     <div class="col-md-12 col-lg-8">
                         <div class="row g-3 g-md-5 justify-content-center">
                             {{-- <div class="col-6 col-md-4">
@@ -205,6 +205,10 @@
                                         <h5>dr. Dwi Suryaning Ayu Aprilizia, Sp.A</h5>
                                         <p class="fw-semibold">Pediatrician</p>
                                         <span>STR: 3321201323154360</span>
+                                        <div class="border-top p-2 mt-2">
+                                            <p class="text-dark fw-semibold mb-1">{{ __("index.section_4.praktik") }}</p>
+                                            <p class="small text-secondary">{{ __("index.section_4.klinik") }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -217,6 +221,10 @@
                                         <h5>dr. Ayu A. Istiana</h5>
                                         <p class="fw-semibold">Aesthetic Doctor</p>
                                         <span>STR: 3121100220145699</span>
+                                        <div class="border-top p-2 mt-2">
+                                            <p class="text-dark fw-semibold mb-1">{{ __("index.section_4.praktik") }}</p>
+                                            <p class="small text-secondary">{{ __("index.section_4.klinik") }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -229,6 +237,10 @@
                                         <h5>dr. Ernita Rosyanti Dewi</h5>
                                         <p class="fw-semibold">General Practitioner</p>
                                         <span>STR: 3121100220145544</span>
+                                        <div class="border-top p-2 mt-2">
+                                            <p class="text-dark fw-semibold mb-1">{{ __("index.section_4.praktik") }}</p>
+                                            <p class="small text-secondary">{{ __("index.section_4.klinik") }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -241,18 +253,26 @@
                                         <h5>dr. Irvan Rizki Fitri</h5>
                                         <p class="fw-semibold">General Practitioner</p>
                                         <span>STR: 3111100321119174</span>
+                                        <div class="border-top p-2 mt-2">
+                                            <p class="text-dark fw-semibold mb-1">{{ __("index.section_4.praktik") }}</p>
+                                            <p class="small text-secondary">{{ __("index.section_4.klinik") }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4">
                                 <div class="items-doctor">
                                     <div class="img-doctor">
-                                        <img src="assets/img/doctor/dr-melchisedek-a.png" alt="">
+                                        <img src="assets/img/doctor/dr-cahyadi.svg" alt="">
                                     </div>
                                     <div class="name">
-                                        <h5>dr. Melchisedek A.V.P Marbun</h5>
+                                        <h5>dr. Cahyadi Surya, MPH</h5>
                                         <p class="fw-semibold">General Practitioner</p>
-                                        <span>STR: 3111100220155405</span>
+                                        <span>STR: 3411100223193150</span>
+                                        <div class="border-top p-2 mt-2">
+                                            <p class="text-dark fw-semibold mb-1">{{ __("index.section_4.praktik") }}</p>
+                                            <p class="small text-secondary">{{ __("index.section_4.klinik") }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -267,73 +287,8 @@
                 <h3 class="title-section"> {{__('index.section_4.txt_header_2')}} </h3>
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-8">
-                        <div class="row g-3 g-md-4 justify-content-center">
-                            <div class="col-6 col-md-4">
-                                <div class="items-doctor">
-                                    <div class="img-doctor">
-                                        <img src="assets/img/doctor/nurse-siti.png" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <h5>Siti Rahma Derlauw</h5>
-                                        <span>STR: 3101522234737239</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="items-doctor">
-                                    <div class="img-doctor">
-                                        <img src="assets/img/doctor/nurse-loisa.png" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <h5>Loisa Lakamai</h5>
-                                        <span>STR: 1701721213519681</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="items-doctor">
-                                    <div class="img-doctor">
-                                        <img src="assets/img/doctor/nurse-syarah.png" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <h5>Syarah Azzarah</h5>
-                                        <span>STR: 2601521224246624 </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-4">
-                                <div class="items-doctor">
-                                    <div class="img-doctor">
-                                        <img src="assets/img/doctor/nurse-marsiani.png" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <h5>Marsiani Talo</h5>
-                                        <span>STR: 190172122-4444051</span>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- <div class="col-6 col-md-4">
-                                <div class="items-doctor">
-                                    <div class="img-doctor">
-                                        <img src="assets/img/doctor/nurse-irfan.png" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <h5>Irfan Mustofa</h5>
-                                        <span>STR: 1401511224517960</span>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <div class="col-6 col-md-4">
-                                <div class="items-doctor">
-                                    <div class="img-doctor">
-                                        <img src="assets/img/doctor/nurse-dimas.png" alt="">
-                                    </div>
-                                    <div class="name">
-                                        <h5>Dimas Catur Nugroho</h5>
-                                        <span>STR: ED00000360053713</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row g-3 g-md-4 justify-content-center" id="nurses-container">
+
                         </div>
                     </div>
                 </div>
@@ -450,3 +405,45 @@
 
     </div>
 </x-master-layout>
+
+<script>
+    const nurses = [
+      { name: "Siti Rahma Derlauw", img: "assets/img/doctor/nurse-siti.webp", str: "3101522234737239" },
+      { name: "Loisa Lakamai", img: "assets/img/doctor/nurse-loisa.webp", str: "1701721213519681" },
+      { name: "Syarah Azzarah", img: "assets/img/doctor/nurse-syarah.webp", str: "2601521224246624" },
+      { name: "Marsiani Talo", img: "assets/img/doctor/nurse-marsiani.webp", str: "190172122-4444051" },
+      { name: "Musdalifa", img: "assets/img/doctor/nurse-musdalifa.png", str: "0501522220-3201328" },
+      { name: "Selamat Hartanto", img: "assets/img/doctor/nurse-selamat.png", str: "TJ00000324384379" },
+      { name: "Sumarna", img: "assets/img/doctor/nurse-sumarna.png", str: "UG00000370743415" },
+      { name: "Dimas Catur Nugroho", img: "assets/img/doctor/nurse-dimas.webp", str: "ED00000360053713" },
+      { name: "I Nyoman Aryana Saputra Wiguna", img: "assets/img/doctor/9 - I Nyoman Aryana Saputra Wiguna.png", str: "170171122-4395317" },
+      { name: "Erlita Prihatin N", img: "assets/img/doctor/10. Erlita-Napitupulu.png", str: "RE00001058716799" },
+      { name: "Nadia Ayu Fitri Hamida", img: "assets/img/doctor/11. Nadia-Ayu-Fitri-Hamidah.png", str: "QA00000917236835" },
+      { name: "Gusti Ngurah Bagus Candra Krisna", img: "assets/img/doctor/12. Bagus-Chandra-Krisna.png", str: "170171121-3480223" },
+      { name: "Hendri Saputra", img: "assets/img/doctor/13. Hendri-Saputra.png", str: "EO00000711576688" },
+      { name: "Putu Diana Purnama Dewi", img: "assets/img/doctor/14. Putu-Diana-Purnama-Dewi.png", str: "VJ00000994225180" },
+      { name: "Ni Putu Sri Andayani", img: "assets/img/doctor/15. Sri-Andayani.png", str: "170172121-3447418" },
+      { name: "Ongky Satia Pambudi", img: "assets/img/doctor/16. Ongky-Satia-Pambudi.png", str: "KZ00000202562677" },
+      { name: "Yuliana", img: "assets/img/doctor/17. Yuliana.png", str: "HR00000149599642" },
+      { name: "Ni Putu Chintya Regina Asak", img: "assets/img/doctor/18. Chintya-Regina-Asak.png", str: "GC00000804474712" }
+    ];
+
+    const container = document.getElementById('nurses-container');
+
+    nurses.forEach(nurse => {
+      const nurseHTML = `
+        <div class="col-6 col-md-4">
+          <div class="items-doctor">
+            <div class="img-doctor">
+              <img src="${nurse.img}" alt="${nurse.name}">
+            </div>
+            <div class="name">
+              <h5>${nurse.name}</h5>
+              <span>STR: ${nurse.str}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      container.innerHTML += nurseHTML;
+    });
+</script>

@@ -53,6 +53,8 @@ return [
     "section_4" => [
         "txt_header_1" => "Dokter Kami",
         "txt_header_2" => "Perawat Kami",
+        "praktik" => "Lokasi Praktik",
+        "klinik" => "Klinik Cepat Sehat"
     ],
     "section_5" => [
         "header" => "Lab Partner",
@@ -71,7 +73,14 @@ return [
     "footer" => [
         "text_row_1" => "Klinik Cepat Sehat",
         "text_row_1_2" => "adalah klinik yang terdaftar di bawah hukum Indonesia dengan nomor registrasi 04102100035090001.",
-        "text_row_2" => "Nikmati layanan homecare kami dari rumah Anda. Kami juga tersedia secara offline di:"
+        "text_row_2" => "Nikmati layanan homecare kami dari rumah Anda. Kami juga tersedia secara offline di:",
+        "row1" => "Clinic Cepat Sehat is a clinic registered under the laws of Indonesia with registration number 04102100035090001.",
+        "row2" => "We provide high-quality healthcare through a team of full-time certified doctors and nurses.",
+        "row3" => "Our professionals are certified by Indonesian healthcare authorities and follow international medical protocols. The clinic complies fully with Indonesian healthcare regulations to ensure the highest standards of care.",
+        "row4" => "We follow strict safety protocols to guarantee the best outcomes.",
+        "row5" => "Our services include home care in Bali and both home and inpatient care in Jakarta.",
+        "row6" => "In 2024, we treated over 25,000 satisfied patients.",
+        "row7" => "Enjoy our homecare service from the comfort of your home. We are also available offline at:",
     ],
 ];
 
